@@ -2,19 +2,6 @@
   padding: 250px 0px;
 }
 
-.nvbar {
-  position: absolute;
-  z-index: 3;
-  width: 100%;
-}
-
-.brand {
-  margin-right: 70%;
-}
-
 .mainHeading {
   font-size: 62px;
-}
-
-.subHeading {
 }

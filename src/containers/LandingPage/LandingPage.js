@@ -1,28 +1,15 @@
 import React, { Component } from "react";
-import "../../styles/LandingPage.css";
 import SkewedContainer from "sc-react";
-import { Navbar, Nav } from "react-bootstrap";
+import NavBar from "../../components/NavBar.js";
+import LoginForm from "../../components/LoginForm.js";
+import { Link } from "react-router-dom";
+import "../../styles/global.css";
 
 class LandingPage extends Component {
   render() {
     return (
       <div>
-        <Navbar stick="top" className="nvbar justify-content-end">
-          <Navbar.Brand className="brand" href="#home">
-            CollabSC
-          </Navbar.Brand>
-          <Nav className="">
-            <Nav.Link className="nvitm" href="#home">
-              Home
-            </Nav.Link>
-            <Nav.Link className="pull-right nvitm" href="#features">
-              Features
-            </Nav.Link>
-            <Nav.Link className="nvitm" href="#pricing">
-              Pricing
-            </Nav.Link>
-          </Nav>
-        </Navbar>
+        {/* <NavBar /> */}
         <SkewedContainer
           className="header"
           top="left"
@@ -32,7 +19,10 @@ class LandingPage extends Component {
           bgColor="skyblue"
         >
           <div>
-            <h2>CollabSC</h2>
+            <Link to="/dashboard">Go To Dashboard</Link>
+            <p className="mainHeading">CollabSC</p>
+            <p className="subHeading">CollabSC</p>
+            <LoginForm />
           </div>
         </SkewedContainer>
       </div>

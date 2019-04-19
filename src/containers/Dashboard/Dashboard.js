@@ -1,5 +1,8 @@
 import React, { Component } from "react";
 import NavBar from "../../components/NavBar.js";
+import SideNavbar from "../../components/SideNavbar.js";
+import TopNavbar from "../../components/TopNavbar.js";
+
 import "../../styles/Dashboard.css";
 import "../../styles/global.css";
 
@@ -12,23 +15,24 @@ class Dashboard extends Component {
   constructor(props) {
     super(props);
     // the initial application state
-    if (props) {
+    if (props.location.state !== undefined) {
+      console.log(props);
       this.state = {
         user: props.location.state.userID,
         type: "user",
         projects: null,
         userProjects: null
       };
+    } else {
+      this.state = {
+        user: 1,
+        type: "guest",
+        projects: [],
+        userProjects: []
+      };
     }
-
-    // else {
-    //   this.state = {
-    //     user: 1,
-    //     type: "guest",
-    //     projects: [],
-    //     userProjects: []
-    //   };
-    // }
+    this.retrieveAllProjects();
+    this.retrieveProject(this.state.user);
   }
 
   retrieveAllProjects() {
@@ -83,10 +87,14 @@ class Dashboard extends Component {
     }
     return (
       <div>
-        <p>Your Projects</p>
-        <ProjectTable projects={this.state.userProjects} />
-        <p>All Projects</p>
-        <ProjectTable projects={this.state.projects} />
+        <SideNavbar />
+        <div className="dashboard">
+          <TopNavbar />
+          <p>Your Projects</p>
+          {/* <ProjectTable projects={this.state.userProjects} /> */}
+          <p>All Projects</p>
+          <ProjectTable projects={this.state.projects} />
+        </div>
       </div>
     );
   }

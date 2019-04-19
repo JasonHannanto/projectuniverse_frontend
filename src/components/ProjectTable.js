@@ -1,56 +1,78 @@
 import BootstrapTable from "react-bootstrap-table-next";
-import React from "react";
+import React, { Component } from "react";
 
-const ProjectTable = props => {
-  const projects = [
-    { id: 1, project: "Project 1", author: "Author 1" },
-    { id: 2, project: "Project 2", author: "Author 2" },
-    { id: 3, project: "Project 3", author: "Author 3" },
-    { id: 4, project: "Project 4", author: "Author 4" }
-  ];
-  const columns = [
+class ProjectTable extends Component {
+  constructor(props) {
+    super(props);
+    console.log({ props: props });
+    // the initial application state
+    if (props) {
+      this.state = {
+        projects: props.projects
+      };
+    } else {
+      this.state = {
+        projects: []
+      };
+    }
+  }
+
+  columns = [
     {
       dataField: "id",
       text: "ID"
     },
     {
-      dataField: "project",
+      dataField: "projectname",
       text: "Project"
     },
     {
-      dataField: "author",
+      dataField: "userid",
       text: "Author"
+    },
+    {
+      dataField: "applicationdeadline",
+      text: "Applications"
+    },
+    {
+      dataField: "projectdetails",
+      text: "Description"
+    },
+    {
+      dataField: "applicationdeadline",
+      text: "Deadline"
     }
   ];
 
-  const expandRow = {
+  expandRow = {
     renderer: row => (
       <div>
         <p>{`Project ID: ${row.id}`}</p>
-        <p>{`Project Name: ${row.project}`}</p>
-        <p>{`Project Author: ${row.author}`}</p>
-
-        <p>
-          You can render anything here, also you can add additional data on
-          every row object
-        </p>
+        <p>{`Project: ${row.projectname}`}</p>
+        <p>{`Author: ${row.userid}`}</p>
+        <p>{`Deadline: ${row.applicationdeadline}`}</p>
+        <p>{`Description: ${row.projectdetails}`}</p>
+        <p>{`Deadline: ${row.applicationdeadline}`}</p>
       </div>
     )
   };
 
-  return (
-    <div>
-      <BootstrapTable
-        keyField="id"
-        data={projects}
-        striped
-        hover
-        expandRow={expandRow}
-        noDataIndication="Table is Empty"
-        columns={columns}
-      />
-    </div>
-  );
-};
+  render() {
+    console.log(this);
+    return (
+      <div>
+        <BootstrapTable
+          keyField="id"
+          data={this.state.projects}
+          striped
+          hover
+          expandRow={this.expandRow}
+          noDataIndication="Table is Empty"
+          columns={this.columns}
+        />
+      </div>
+    );
+  }
+}
 
 export default ProjectTable;

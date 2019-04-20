@@ -27,8 +27,8 @@ class Dashboard extends Component {
       this.state = {
         user: 1,
         type: "guest",
-        projects: [],
-        userProjects: []
+        projects: null,
+        userProjects: null
       };
     }
     this.retrieveAllProjects();
@@ -82,7 +82,7 @@ class Dashboard extends Component {
     if (this.state.user === null) {
       return <div>Please login first</div>;
     }
-    while (this.state.projects === null && this.state.userProjects === null) {
+    while (this.state.projects === null || this.state.userProjects === null) {
       return <div>Loading...</div>;
     }
     return (
@@ -90,9 +90,9 @@ class Dashboard extends Component {
         <SideNavbar />
         <div className="dashboard">
           <TopNavbar />
-          <p>Your Projects</p>
+          <p className="tableheaders">Your Projects</p>
           {/* <ProjectTable projects={this.state.userProjects} /> */}
-          <p>All Projects</p>
+          <p className="tableheaders">All Projects</p>
           <ProjectTable projects={this.state.projects} />
         </div>
       </div>

@@ -16,3 +16,8 @@
 .mainHeading {
   font-size: 62px;
 }
+
+body,
+html {
+  height: 100%;
+}

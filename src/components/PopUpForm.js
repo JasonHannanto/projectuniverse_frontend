@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import Popup from "reactjs-popup";
 import { Button } from "react-bootstrap";
+import Apply from "./Apply";
 
 const PopUpForm = () => (
   <Popup
@@ -13,7 +14,9 @@ const PopUpForm = () => (
     modal
     closeOnDocumentClick
   >
-    <span> Modal content </span>
+    <span>
+      <Apply />
+    </span>
   </Popup>
 );
 

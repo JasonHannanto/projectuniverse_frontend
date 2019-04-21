@@ -50,7 +50,7 @@ class Dashboard extends Component {
 
   retrieveProject(userID) {
     axios
-      .get("http://localhost:8080/projects/" + userID)
+      .get("http://localhost:8080/projects/user/" + userID)
       .then(res => {
         console.log({ here: res });
         let projRes = res.data;
@@ -91,7 +91,7 @@ class Dashboard extends Component {
         <div className="dashboard">
           <TopNavbar />
           <p className="tableheaders">Your Projects</p>
-          {/* <ProjectTable projects={this.state.userProjects} /> */}
+          <ProjectTable projects={this.state.userProjects} />
           <p className="tableheaders">All Projects</p>
           <ProjectTable projects={this.state.projects} />
         </div>

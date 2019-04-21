@@ -29,9 +29,8 @@ class LandingPage extends Component {
           className="header"
           top="left"
           noMargin
-          skew="3"
+          skew={3}
           bottom="right"
-          bgColor="skyblue"
         >
           <div>
             <Link to="/dashboard">Go To Dashboard</Link>

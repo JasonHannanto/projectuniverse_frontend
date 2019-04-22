@@ -1,4 +1,4 @@
-import { Form, Input, Textarea, File } from "formsy-react-components";
+import { Form, Input, Textarea } from "formsy-react-components";
 import Formsy from "formsy-react";
 import React, { Component } from "react";
 import { Button } from "react-bootstrap";
@@ -76,8 +76,6 @@ class Apply extends Component {
             value="I bring milk"
             label="Is there anything you would like to share with the team?"
           />
-
-          <File name="resume" label="Upload Resume" />
 
           <Button type="submit"> Submit </Button>
         </Form>

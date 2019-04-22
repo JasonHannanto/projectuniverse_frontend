@@ -2,6 +2,8 @@ import React, { Component } from "react";
 import NavBar from "../../components/NavBar.js";
 import SideNavbar from "../../components/SideNavbar.js";
 import TopNavbar from "../../components/TopNavbar.js";
+import { Jumbotron, Container, Button } from "react-bootstrap";
+import PopUpFormProject from "../../components/PopUpFormProject.js";
 
 import "../../styles/Dashboard.css";
 import "../../styles/global.css";
@@ -19,6 +21,7 @@ class Dashboard extends Component {
       console.log(props);
       this.state = {
         user: props.location.state.userID,
+        userInfo: null,
         type: "user",
         projects: null,
         userProjects: null
@@ -26,6 +29,7 @@ class Dashboard extends Component {
     } else {
       this.state = {
         user: 1,
+        userInfo: null,
         type: "guest",
         projects: null,
         userProjects: null
@@ -43,6 +47,19 @@ class Dashboard extends Component {
         this.setState({ projects: projRes });
         console.log(this.state);
       })
+      .then(() => {
+        axios
+          .get("http://localhost:8080/users/" + this.state.user)
+          .then(res => {
+            console.log({ OVERHERE: res });
+
+            let projRes = res.data;
+            this.setState({ userInfo: projRes });
+          })
+          .catch(error => {
+            console.log(error);
+          });
+      })
       .catch(error => {
         console.log(error);
       });
@@ -58,6 +75,7 @@ class Dashboard extends Component {
       })
       .catch(error => {
         console.log(error);
+        this.setState({ userProjects: [] });
       });
   }
 
@@ -82,7 +100,11 @@ class Dashboard extends Component {
     if (this.state.user === null) {
       return <div>Please login first</div>;
     }
-    while (this.state.projects === null || this.state.userProjects === null) {
+    while (
+      this.state.projects === null ||
+      this.state.userProjects === null ||
+      this.state.userInfo === null
+    ) {
       return <div>Loading...</div>;
     }
     return (
@@ -90,9 +112,20 @@ class Dashboard extends Component {
         <SideNavbar />
         <div className="dashboard">
           <TopNavbar />
-          <p className="tableheaders">Your Projects</p>
+          <Jumbotron fluid style={{ marginBottom: "0px" }}>
+            <Container>
+              <h1>Morning, {this.state.userInfo.fname}!</h1>
+            </Container>
+          </Jumbotron>
+          <PopUpFormProject />
+
+          <div className="tableheaders">
+            <p style={{ marginBottom: "0px" }}>Your Projects</p>
+          </div>
           <ProjectTable projects={this.state.userProjects} />
-          <p className="tableheaders">All Projects</p>
+          <p className="tableheaders" style={{ marginBottom: "0px" }}>
+            All Projects
+          </p>
           <ProjectTable projects={this.state.projects} />
         </div>
       </div>

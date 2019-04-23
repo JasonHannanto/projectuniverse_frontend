@@ -11,12 +11,14 @@ import "../styles/Apply.css";
 const axios = require("axios");
 
 toast.configure({
-  autoClose: 8000,
-  draggable: false
+  autoClose: 14000,
+  pauseOnHover: true,
+  draggable: false,
+  type: "success"
   //etc you get the idea
 });
 
-const notify = () => toast("Wow so easy !");
+const notify = () => toast("Adding Project to Database...");
 
 class ApplyProject extends Component {
   constructor(props) {

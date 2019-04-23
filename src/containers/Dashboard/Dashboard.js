@@ -122,7 +122,7 @@ class Dashboard extends Component {
     if (this.state.user === 1) {
       return (
         <div>
-          <SideNavbar />
+          {/* <SideNavbar /> */}
           <div className="dashboard">
             <TopNavbar user={this.state.user} />
             <Jumbotron fluid style={{ marginBottom: "0px" }}>
@@ -144,7 +144,7 @@ class Dashboard extends Component {
     // USER
     return (
       <div>
-        <SideNavbar user={this.state.user} />
+        {/* <SideNavbar user={this.state.user} /> */}
         <div className="dashboard">
           <TopNavbar user={this.state.user} />
           <Jumbotron fluid style={{ marginBottom: "0px" }}>

@@ -68,18 +68,35 @@ class LoginForm extends Component {
   }
 
   register(data) {
-    axios
-      .post("http://localhost:8080/register", {
-        fname: data.fname,
-        lname: data.lname,
-        email: data.email,
-        password: data.password,
-        classstanding: data.classstanding,
-        major: data.major,
-        phonenumber: data.phonenumber,
-        resumeurl: data.resumeurl
-      })
+    console.log({ data123: data });
+    bodyFormData.set("fname", data.fname);
+    bodyFormData.set("lname", data.lname);
+    bodyFormData.set("email", data.email);
+    bodyFormData.set("password", data.password);
+    bodyFormData.set("classstanding", data.classstanding);
+    bodyFormData.set("major", data.major);
+    bodyFormData.set("password", data.password);
+    bodyFormData.set("resumeurl", data.resumeurl);
+
+    axios({
+      method: "post",
+      url: "http://localhost:8080/register",
+      data: bodyFormData,
+      config: { headers: { "Content-Type": "multipart/form-data" } }
+    })
+      // axios
+      //   .post("http://localhost:8080/register", {
+      //     fname: data.fname,
+      //     lname: data.lname,
+      //     email: data.email,
+      //     password: data.password,
+      //     classstanding: data.classstanding,
+      //     major: data.major,
+      //     phonenumber: data.phonenumber,
+      //     resumeurl: data.resumeurl
+      //   })
       .then(response => {
+        console.log({ WATRETURNED: response });
         if (response.data.success === true) {
           alert("Registration Success");
           this.setState({
@@ -142,10 +159,10 @@ class LoginForm extends Component {
           >
             <Input name="fname" value="Trojan" label="First Name" />
             <Input name="lname" value="Trojan" label="Last Name" />
-            <Input name="email" value="Trojan" label="Email" />
+            <Input name="email" value="Trojan@usc.edu" label="Email" />
             <Input name="lname" value="Trojan" label="Last Name" />
-            <Input name="password" value="Trojan" label="Password" />
-            <Input name="classstanding" value="Trojan" label="Class Standing" />
+            <Input name="password" value="123456" label="Password" />
+            <Input name="classstanding" value="1" label="Class Standing" />
             <Input name="major" value="Trojan" label="Major" />
             <Input name="phonenumber" value="Trojan" label="Phone Number" />
             <Input name="resumeurl" value="Trojan" label="Resume Link" />

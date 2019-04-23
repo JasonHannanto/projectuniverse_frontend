@@ -107,6 +107,31 @@ class Dashboard extends Component {
     ) {
       return <div>Loading...</div>;
     }
+
+    // GUEST
+    if (this.state.user === 1) {
+      return (
+        <div>
+          <SideNavbar />
+          <div className="dashboard">
+            <TopNavbar />
+            <Jumbotron fluid style={{ marginBottom: "0px" }}>
+              <Container>
+                <h1>Welcome, feel free to preview the dashboard!</h1>
+              </Container>
+            </Jumbotron>
+            <p className="tableheaders" style={{ marginBottom: "0px" }}>
+              All Projects
+            </p>
+            <ProjectTable
+              projects={this.state.projects}
+              user={this.state.user}
+            />
+          </div>
+        </div>
+      );
+    }
+    // USER
     return (
       <div>
         <SideNavbar />
@@ -122,11 +147,14 @@ class Dashboard extends Component {
           <div className="tableheaders">
             <p style={{ marginBottom: "0px" }}>Your Projects</p>
           </div>
-          <ProjectTable projects={this.state.userProjects} />
+          <ProjectTable
+            projects={this.state.userProjects}
+            user={this.state.user}
+          />
           <p className="tableheaders" style={{ marginBottom: "0px" }}>
             All Projects
           </p>
-          <ProjectTable projects={this.state.projects} />
+          <ProjectTable projects={this.state.projects} user={this.state.user} />
         </div>
       </div>
     );

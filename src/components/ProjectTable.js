@@ -17,7 +17,8 @@ class ProjectTable extends Component {
     // the initial application state
     if (props) {
       this.state = {
-        projects: props.projects
+        projects: props.projects,
+        user: props.user
       };
     } else {
       this.state = {
@@ -94,7 +95,7 @@ class ProjectTable extends Component {
             {`${row.applicationdeadline}`}
           </p>
 
-          <PopUpForm />
+          <PopUpForm user={this.state.user} />
         </div>
       </div>
     )

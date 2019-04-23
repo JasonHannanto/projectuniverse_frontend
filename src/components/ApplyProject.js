@@ -17,7 +17,7 @@ toast.configure({
   type: toast.TYPE.SUCCESS
 });
 
-const notify = () => toast("Adding Project to Database...");
+const notify = () => toast.success("Adding Project to Database...");
 
 class ApplyProject extends Component {
   constructor(props) {

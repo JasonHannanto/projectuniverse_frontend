@@ -141,8 +141,8 @@ class LoginForm extends Component {
               this.login(data);
             }}
           >
-            <Input name="email" value="bob@gmail.com" label="Email" />
-            <Input name="password" value="nono" label="Password" />
+            <Input name="email" value="TommyTrojan@usc.edu" label="Email" />
+            <Input name="password" value="123" label="Password" />
             <Button type="submit">Login</Button>
           </Form>
         </div>

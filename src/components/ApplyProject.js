@@ -4,9 +4,19 @@ import React, { Component } from "react";
 import { Button } from "react-bootstrap";
 import component from "formsy-react-components/release/hoc/component";
 import Loader from "./Loader.js";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "../styles/Apply.css";
 
 const axios = require("axios");
+
+toast.configure({
+  autoClose: 8000,
+  draggable: false
+  //etc you get the idea
+});
+
+const notify = () => toast("Wow so easy !");
 
 class ApplyProject extends Component {
   constructor(props) {
@@ -57,12 +67,15 @@ class ApplyProject extends Component {
               .then(response => {
                 if (response.data.success === true) {
                   alert("Successfully Created Project");
+                  notify();
                   this.setState({
                     workflow: "registration_success",
                     user: response.data.userId
                   });
                 } else {
                   alert("Successfully Created Project");
+                  notify();
+
                   this.setState({
                     workflow: "registration_failure",
                     user: response.data.userId

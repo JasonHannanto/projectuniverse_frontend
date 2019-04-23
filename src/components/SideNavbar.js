@@ -2,8 +2,14 @@ import React, { Component } from "react";
 import "@trendmicro/react-sidenav/dist/react-sidenav.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faHome } from "@fortawesome/free-solid-svg-icons";
-import { fas } from "@fortawesome/free-solid-svg-icons";
+import {
+  faHome,
+  faCheckSquare,
+  faUser,
+  faCoffee,
+  fas,
+  faCogs
+} from "@fortawesome/free-solid-svg-icons";
 
 import SideNav, {
   Toggle,
@@ -13,7 +19,7 @@ import SideNav, {
   NavText
 } from "@trendmicro/react-sidenav";
 
-library.add(faHome, fas);
+library.add(faCoffee, faHome, faUser, faCogs);
 
 class SideNavbar extends Component {
   render() {
@@ -27,14 +33,23 @@ class SideNavbar extends Component {
       >
         <SideNav.Toggle />
         <SideNav.Nav defaultSelected="home">
-          <NavItem eventKey="charts">
+          <NavItem eventKey="user">
             <NavIcon>
-              <FontAwesomeIcon icon="faHome" />
+              <FontAwesomeIcon icon="home" />
             </NavIcon>
-            <NavText>Charts</NavText>
-            <NavItem eventKey="charts/linechart">
-              <NavText>Line Chart</NavText>
-            </NavItem>
+            <NavText>Home</NavText>
+          </NavItem>
+          <NavItem eventKey="profile">
+            <NavIcon>
+              <FontAwesomeIcon icon="user" />
+            </NavIcon>
+            <NavText>Profile</NavText>
+          </NavItem>
+          <NavItem eventKey="settings">
+            <NavIcon>
+              <FontAwesomeIcon icon="cogs" />
+            </NavIcon>
+            <NavText>Settings</NavText>
           </NavItem>
         </SideNav.Nav>
       </SideNav>
@@ -43,3 +58,17 @@ class SideNavbar extends Component {
 }
 
 export default SideNavbar;
+
+{
+  /* <NavItem eventKey="user">
+<NavIcon>
+  <FontAwesomeIcon icon="user" />
+</NavIcon>
+<NavText>Profile</NavText>
+<NavItem eventKey="user/settings">
+  <NavText>Settings</NavText>
+  <NavText>Account</NavText>
+  <NavText>Support</NavText>
+</NavItem>
+</NavItem> */
+}

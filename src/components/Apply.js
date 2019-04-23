@@ -5,6 +5,18 @@ import { Button } from "react-bootstrap";
 import component from "formsy-react-components/release/hoc/component";
 import Loader from "./Loader.js";
 import "../styles/Apply.css";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+toast.configure({
+  autoClose: 15000,
+  pauseOnHover: true,
+  draggable: false,
+  type: toast.TYPE.SUCCESS
+});
+
+const notify = () => toast.success("Adding Project to Database...");
+
 class Apply extends Component {
   constructor(props) {
     super(props);

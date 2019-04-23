@@ -14,6 +14,9 @@ import "@trendmicro/react-navbar/dist/react-navbar.css";
 class TopNavbar extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: props.user
+    };
   }
   render() {
     if (this.state.user === 1) {

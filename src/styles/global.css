@@ -21,3 +21,7 @@ body,
 html {
   height: 100%;
 }
+
+#header {
+  background-color: blue !important;
+}

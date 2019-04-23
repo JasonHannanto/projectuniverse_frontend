@@ -45,29 +45,51 @@ class LandingPage extends Component {
               style={{
                 color: "white",
                 fontSize: "90px",
-                fontWeight: "bolder"
+                fontWeight: "bolder",
+                textAlign: "center"
               }}
             >
               CollabSC
             </p>
-            <ButtonToolbar>
-              <Button onClick={() => this.handle("login")} variant="primary">
-                Login
-              </Button>
-              <Button
-                onClick={() => this.handle("register")}
-                variant="secondary"
-              >
-                Register
-              </Button>
-            </ButtonToolbar>
-            {this.state.type === "login" ? (
-              <LoginForm type="login" />
-            ) : (
-              <LoginForm type="register" />
-            )}
+
+            <div
+              style={{
+                width: "500px",
+                textAlign: "center",
+                marginLeft: "100px",
+                position: "static",
+                zIndex: "999",
+                margin: "0 auto"
+              }}
+            >
+              <ButtonToolbar>
+                <Button onClick={() => this.handle("login")} variant="primary">
+                  Login
+                </Button>
+                <Button
+                  onClick={() => this.handle("register")}
+                  variant="secondary"
+                >
+                  Register
+                </Button>
+              </ButtonToolbar>
+              {this.state.type === "login" ? (
+                <LoginForm type="login" />
+              ) : (
+                <LoginForm type="register" />
+              )}
+            </div>
           </div>
         </SkewedContainer>
+        <SkewedContainer
+          className="header"
+          top="left"
+          noMargin
+          skew={3}
+          bottom="right"
+          bgColor="#FFC72C"
+          style={{ marginTop: "130px", paddingBottom: "500px" }}
+        />
       </div>
     );
   }

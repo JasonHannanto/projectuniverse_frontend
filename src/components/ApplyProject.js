@@ -51,7 +51,7 @@ class ApplyProject extends Component {
                 projectname: data.projectname,
                 projectdetails: data.projectdetaills,
                 applicationdeadline: data.applicationdeadline,
-                userID: this.state.user
+                userid: this.state.user
               })
               .then(response => {
                 if (response.data.success === true) {

@@ -5,6 +5,7 @@ import Dropdown from "@trendmicro/react-dropdown";
 import { StickyContainer, Sticky } from "react-sticky";
 import { Nav, NavDropdown, NavItem, MenuItem } from "@trendmicro/react-navs";
 import PropTypes from "prop-types";
+import { Button } from "react-bootstrap";
 
 import "@trendmicro/react-dropdown/dist/react-dropdown.css";
 import "@trendmicro/react-navs/dist/react-navs.css";
@@ -23,15 +24,7 @@ class TopNavbar extends Component {
               <Navbar.Toggle />
             </Navbar.Header>
             <Nav navStyle="navbar" style={{ float: "right" }}>
-              <NavDropdown
-                autoOpen
-                style={{ borderRight: "1px solid black" }}
-                eventKey="dashboard"
-                title="Account"
-              >
-                <MenuItem eventKey="dashboard.1">Menu Item 1</MenuItem>
-                <MenuItem eventKey="dashboard.2">Menu Item 2</MenuItem>
-              </NavDropdown>
+              <Button onClick={() => alert("x")}>Logout</Button>
             </Nav>
           </Navbar>
         </Sticky>

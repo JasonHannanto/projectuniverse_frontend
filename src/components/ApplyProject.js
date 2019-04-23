@@ -49,8 +49,9 @@ class ApplyProject extends Component {
             axios
               .post("http://localhost:8080/projects", {
                 projectname: data.projectname,
-                projectdetails: data.projectdetaills,
+                projectdetails: data.projectdetails,
                 applicationdeadline: data.applicationdeadline,
+                numapplications: 0,
                 userid: this.state.user
               })
               .then(response => {

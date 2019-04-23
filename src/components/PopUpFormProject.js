@@ -6,6 +6,9 @@ import ApplyProject from "./ApplyProject";
 class PopUpFormProject extends Component {
   constructor(props) {
     super(props);
+    this.state = {
+      user: this.props.user
+    };
   }
   render() {
     return (
@@ -20,7 +23,7 @@ class PopUpFormProject extends Component {
         closeOnDocumentClick
       >
         <span>
-          <ApplyProject notify={this.props.notify} />
+          <ApplyProject notify={this.props.notify} user={this.state.user} />
         </span>
       </Popup>
     );

@@ -152,7 +152,7 @@ class Dashboard extends Component {
               <h1>Morning, {this.state.userInfo.fname}!</h1>
             </Container>
           </Jumbotron>
-          <PopUpFormProject notify={this.notify} />
+          <PopUpFormProject notify={this.notify} user={this.state.user} />
 
           <div className="tableheaders">
             <p style={{ marginBottom: "0px" }}>Your Projects</p>

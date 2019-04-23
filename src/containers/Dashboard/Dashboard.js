@@ -4,6 +4,8 @@ import SideNavbar from "../../components/SideNavbar.js";
 import TopNavbar from "../../components/TopNavbar.js";
 import { Jumbotron, Container, Button } from "react-bootstrap";
 import PopUpFormProject from "../../components/PopUpFormProject.js";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 import "../../styles/Dashboard.css";
 import "../../styles/global.css";
@@ -12,6 +14,12 @@ import ProjectTable from "../../components/ProjectTable";
 import { get } from "https";
 
 const axios = require("axios");
+
+toast.configure({
+  autoClose: 8000,
+  draggable: false
+  //etc you get the idea
+});
 
 class Dashboard extends Component {
   constructor(props) {
@@ -38,7 +46,9 @@ class Dashboard extends Component {
     this.retrieveAllProjects();
     this.retrieveProject(this.state.user);
   }
-
+  notify() {
+    toast("Wow so easy !");
+  }
   retrieveAllProjects() {
     axios
       .get("http://localhost:8080/projects")
@@ -142,7 +152,7 @@ class Dashboard extends Component {
               <h1>Morning, {this.state.userInfo.fname}!</h1>
             </Container>
           </Jumbotron>
-          <PopUpFormProject />
+          <PopUpFormProject notify={this.notify} />
 
           <div className="tableheaders">
             <p style={{ marginBottom: "0px" }}>Your Projects</p>
@@ -154,7 +164,11 @@ class Dashboard extends Component {
           <p className="tableheaders" style={{ marginBottom: "0px" }}>
             All Projects
           </p>
-          <ProjectTable projects={this.state.projects} user={this.state.user} />
+          <ProjectTable
+            projects={this.state.projects}
+            user={this.state.user}
+            notify={this.notify}
+          />
         </div>
       </div>
     );

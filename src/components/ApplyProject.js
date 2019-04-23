@@ -13,7 +13,8 @@ class ApplyProject extends Component {
     super(props);
     this.state = {
       sent: false,
-      loading: false
+      loading: false,
+      user: props.user
     };
   }
 
@@ -50,17 +51,17 @@ class ApplyProject extends Component {
                 projectname: data.projectname,
                 projectdetails: data.projectdetaills,
                 applicationdeadline: data.applicationdeadline,
-                userID: 2
+                userID: this.state.user
               })
               .then(response => {
                 if (response.data.success === true) {
-                  alert("Registration Success");
+                  alert("Successfully Created Project");
                   this.setState({
                     workflow: "registration_success",
                     user: response.data.userId
                   });
                 } else {
-                  alert("Registration Failed");
+                  alert("Successfully Created Project");
                   this.setState({
                     workflow: "registration_failure",
                     user: response.data.userId

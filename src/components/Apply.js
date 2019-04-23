@@ -12,6 +12,7 @@ class Apply extends Component {
       sent: false,
       loading: false
     };
+    let notify = this.props.notify;
   }
 
   render() {
@@ -23,6 +24,8 @@ class Apply extends Component {
           </div>
         );
       }
+
+      // this.notify();
       return (
         <div style={{ padding: "30px" }}>
           <h2>Application Sent!</h2>

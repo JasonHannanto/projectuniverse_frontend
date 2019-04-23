@@ -10,6 +10,7 @@ class PopUpForm extends Component {
       user: props.user
     };
     console.log({ boom: props });
+    let notify = props.notify;
   }
   render() {
     if (this.state.user === 1) {

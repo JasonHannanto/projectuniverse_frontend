@@ -22,9 +22,12 @@ class ProjectTable extends Component {
       };
     } else {
       this.state = {
-        projects: []
+        projects: [],
+        user: 1
       };
     }
+
+    let notify = props.notify;
   }
 
   columns = [
@@ -95,7 +98,7 @@ class ProjectTable extends Component {
             {`${row.applicationdeadline}`}
           </p>
 
-          <PopUpForm user={this.state.user} />
+          <PopUpForm user={this.state.user} notify={this.notify} />
         </div>
       </div>
     )

@@ -31,11 +31,25 @@ class LandingPage extends Component {
           noMargin
           skew={3}
           bottom="right"
+          bgColor="#990000"
         >
           <div>
-            <Link to="/dashboard">Go To Dashboard</Link>
-            <p className="mainHeading">CollabSC</p>
-            <p className="subHeading">CollabSC</p>
+            <Button type="success">
+              <Link to="/dashboard" style={{ color: "white" }}>
+                Guest Access
+              </Link>
+            </Button>
+
+            <p
+              className="mainHeading"
+              style={{
+                color: "white",
+                fontSize: "90px",
+                fontWeight: "bolder"
+              }}
+            >
+              CollabSC
+            </p>
             <ButtonToolbar>
               <Button onClick={() => this.handle("login")} variant="primary">
                 Login

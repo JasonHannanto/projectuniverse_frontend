@@ -15,7 +15,8 @@ toast.configure({
   type: toast.TYPE.SUCCESS
 });
 
-const notify = () => toast.success("Adding Project to Database...");
+const notify = () =>
+  toast.success("Sending your application to the project owner!");
 
 class Apply extends Component {
   constructor(props) {
@@ -37,6 +38,7 @@ class Apply extends Component {
         );
       }
 
+      notify();
       // this.notify();
       return (
         <div style={{ padding: "30px" }}>

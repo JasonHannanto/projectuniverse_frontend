@@ -55,6 +55,7 @@ class ApplyProject extends Component {
     } else {
       return (
         <Form
+          style={{ color: "black" }}
           className="popupForm"
           onSubmit={data => {
             axios

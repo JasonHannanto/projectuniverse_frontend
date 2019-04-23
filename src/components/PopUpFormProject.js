@@ -23,7 +23,11 @@ class PopUpFormProject extends Component {
         closeOnDocumentClick
       >
         <span>
-          <ApplyProject notify={this.props.notify} user={this.state.user} />
+          <ApplyProject
+            notify={this.props.notify}
+            user={this.state.user}
+            style={{ color: "black" }}
+          />
         </span>
       </Popup>
     );

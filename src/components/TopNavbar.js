@@ -24,7 +24,7 @@ class TopNavbar extends Component {
               <Navbar.Toggle />
             </Navbar.Header>
             <Nav navStyle="navbar" style={{ float: "right" }}>
-              <Button onClick={() => alert("x")}>Logout</Button>
+              <Button onClick={() => (window.location = "/")}>Logout</Button>
             </Nav>
           </Navbar>
         </Sticky>

@@ -124,7 +124,7 @@ class Dashboard extends Component {
         <div>
           <SideNavbar />
           <div className="dashboard">
-            <TopNavbar />
+            <TopNavbar user={this.state.user} />
             <Jumbotron fluid style={{ marginBottom: "0px" }}>
               <Container>
                 <h1>Welcome, feel free to preview the dashboard!</h1>

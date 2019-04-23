@@ -16,20 +16,37 @@ class TopNavbar extends Component {
     super(props);
   }
   render() {
-    return (
-      <StickyContainer>
-        <Sticky>
-          <Navbar style={{ backgroundColor: "black" }}>
-            <Navbar.Header>
-              <Navbar.Toggle />
-            </Navbar.Header>
-            <Nav navStyle="navbar" style={{ float: "right" }}>
-              <Button onClick={() => (window.location = "/")}>Logout</Button>
-            </Nav>
-          </Navbar>
-        </Sticky>
-      </StickyContainer>
-    );
+    if (this.state.user === 1) {
+      return (
+        <StickyContainer>
+          <Sticky>
+            <Navbar style={{ backgroundColor: "black" }}>
+              <Navbar.Header>
+                <Navbar.Toggle />
+              </Navbar.Header>
+              <Nav navStyle="navbar" style={{ float: "right" }}>
+                <Button onClick={() => (window.location = "/")}>Login</Button>
+              </Nav>
+            </Navbar>
+          </Sticky>
+        </StickyContainer>
+      );
+    } else {
+      return (
+        <StickyContainer>
+          <Sticky>
+            <Navbar style={{ backgroundColor: "black" }}>
+              <Navbar.Header>
+                <Navbar.Toggle />
+              </Navbar.Header>
+              <Nav navStyle="navbar" style={{ float: "right" }}>
+                <Button onClick={() => (window.location = "/")}>Logout</Button>
+              </Nav>
+            </Navbar>
+          </Sticky>
+        </StickyContainer>
+      );
+    }
   }
 }
 

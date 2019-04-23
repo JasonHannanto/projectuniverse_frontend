@@ -144,9 +144,9 @@ class Dashboard extends Component {
     // USER
     return (
       <div>
-        <SideNavbar />
+        <SideNavbar user={this.state.user} />
         <div className="dashboard">
-          <TopNavbar />
+          <TopNavbar user={this.state.user} />
           <Jumbotron fluid style={{ marginBottom: "0px" }}>
             <Container>
               <h1>Morning, {this.state.userInfo.fname}!</h1>

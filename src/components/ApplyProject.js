@@ -11,11 +11,10 @@ import "../styles/Apply.css";
 const axios = require("axios");
 
 toast.configure({
-  autoClose: 14000,
+  autoClose: 15000,
   pauseOnHover: true,
   draggable: false,
-  type: "success"
-  //etc you get the idea
+  type: toast.TYPE.SUCCESS
 });
 
 const notify = () => toast("Adding Project to Database...");

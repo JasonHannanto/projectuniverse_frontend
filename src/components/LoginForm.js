@@ -1,6 +1,6 @@
-import { Form, Input } from "formsy-react-components";
+// import { Form, Input } from "formsy-react-components";
 import React, { Component } from "react";
-import { Button } from "react-bootstrap";
+import { Form, Button, Jumbotron } from "react-bootstrap";
 import "./form.css";
 import { Redirect } from "react-router-dom";
 
@@ -41,9 +41,10 @@ class LoginForm extends Component {
   }
 
   login(data) {
-    bodyFormData.set("email", data.email);
-    bodyFormData.set("password", data.password);
-
+    data.preventDefault();
+    console.log({ here: data })
+    bodyFormData.set("email", this.refs.email.value);
+    bodyFormData.set("password", this.refs.password.value);
     axios({
       method: "post",
       url: "http://localhost:8080/login",
@@ -51,7 +52,6 @@ class LoginForm extends Component {
       config: { headers: { "Content-Type": "multipart/form-data" } }
     })
       .then(response => {
-        console.log(response);
         if (response.data.success === true) {
           alert("Login Success");
           this.setState({
@@ -62,10 +62,10 @@ class LoginForm extends Component {
           alert("Login Failed");
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
-  }
+  };
 
   register(data) {
     console.log({ data123: data });
@@ -111,7 +111,7 @@ class LoginForm extends Component {
           });
         }
       })
-      .catch(function(error) {
+      .catch(function (error) {
         console.log(error);
       });
   }
@@ -135,7 +135,39 @@ class LoginForm extends Component {
       return (
         <div className="formDiv">
           <h1>Login</h1>
-          <Form
+
+          <Form className="form" onSubmit={(e) => this.login(e)}>
+            <Form.Group controlId="email">
+              <Form.Label>Email address</Form.Label>
+              <Form.Control
+                type="email"
+                ref="email"
+                defaultValue="bob@gmail.com"
+                placeholder="Enter email"
+              />
+              <Form.Text className="text-muted">
+                We'll never share your email with anyone else.
+              </Form.Text>
+            </Form.Group>
+
+            <Form.Group controlId="formBasicPassword">
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                value="nono"
+                ref="password"
+                placeholder="Password"
+              />
+            </Form.Group>
+            <Form.Group controlId="formBasicCheckbox">
+              <Form.Check type="checkbox" label="Check me out" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+            </Button>
+          </Form>
+
+          {/* <Form
             className="form"
             onSubmit={data => {
               this.login(data);
@@ -144,7 +176,7 @@ class LoginForm extends Component {
             <Input name="email" value="TommyTrojan@usc.edu" label="Email" />
             <Input name="password" value="123" label="Password" />
             <Button type="submit">Login</Button>
-          </Form>
+          </Form> */}
         </div>
       );
     } else {
@@ -153,19 +185,19 @@ class LoginForm extends Component {
           <h1>Register</h1>
           <Form
             className="form"
-            onSubmit={data => {
-              this.register(data);
-            }}
+          // onSubmit={data => {
+          //   this.register(data);
+          // }}
           >
-            <Input name="fname" value="Trojan" label="First Name" />
-            <Input name="lname" value="Trojan" label="Last Name" />
-            <Input name="email" value="Trojan@usc.edu" label="Email" />
-            <Input name="lname" value="Trojan" label="Last Name" />
-            <Input name="password" value="123456" label="Password" />
-            <Input name="classstanding" value="1" label="Class Standing" />
-            <Input name="major" value="Trojan" label="Major" />
-            <Input name="phonenumber" value="Trojan" label="Phone Number" />
-            <Input name="resumeurl" value="Trojan" label="Resume Link" />
+            <input name="fname" label="First Name" />
+            <input name="lname" value="Trojan" label="Last Name" />
+            <input name="email" value="Trojan@usc.edu" label="Email" />
+            <input name="lname" value="Trojan" label="Last Name" />
+            <input name="password" value="123456" label="Password" />
+            <input name="classstanding" value="1" label="Class Standing" />
+            <input name="major" value="Trojan" label="Major" />
+            <input name="phonenumber" value="Trojan" label="Phone Number" />
+            <input name="resumeurl" value="Trojan" label="Resume Link" />
             <Button type="submit">Register</Button>
           </Form>
         </div>

@@ -3,7 +3,7 @@ import SkewedContainer from "sc-react";
 import NavBar from "../../components/NavBar.js";
 import LoginForm from "../../components/LoginForm.js";
 import { Link } from "react-router-dom";
-import { ButtonToolbar, Button } from "react-bootstrap";
+import { ButtonToolbar, Button, Jumbotron } from "react-bootstrap";
 import "../../styles/global.css";
 
 class LandingPage extends Component {
@@ -76,10 +76,11 @@ class LandingPage extends Component {
               {this.state.type === "login" ? (
                 <LoginForm type="login" />
               ) : (
-                <LoginForm type="register" />
-              )}
+                  <LoginForm type="register" />
+                )}
             </div>
           </div>
+
         </SkewedContainer>
         <SkewedContainer
           className="header"

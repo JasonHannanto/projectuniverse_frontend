@@ -12,7 +12,8 @@
     "axios": "^0.18.0",
     "bootstrap": "^4.3.1",
     "formsy-react": "^1.1.5",
-    "formsy-react-components": "^2.0.0-alpha.1",
+    "formsy-react-components": "^2.0.0-alpha.3",
+    "fsevents": "^1.2.9",
     "i": "^0.3.6",
     "loaders.css": "^0.1.2",
     "npm": "^6.9.0",
@@ -35,6 +36,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "update:packages": "node wipe-dependencies.js && rm - rf node_modules && npm update--save - dev && npm update--save ",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {

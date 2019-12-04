@@ -27,11 +27,13 @@ class LandingPage extends Component {
         {/* <NavBar /> */}
         <SkewedContainer
           className="header"
-          top="left"
+          top="right"
           noMargin
-          skew={3}
+          skew={-3}
           bottom="right"
           bgColor="#990000"
+          style={{ marginTop: "0px" }}
+
         >
           <div>
             <Button type="success">

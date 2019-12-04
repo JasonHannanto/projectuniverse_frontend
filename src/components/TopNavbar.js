@@ -23,7 +23,7 @@ class TopNavbar extends Component {
       return (
         <StickyContainer>
           <Sticky>
-            <Navbar style={{ backgroundColor: "black" }}>
+            <Navbar style={{ backgroundColor: "#990000" }}>
               <Navbar.Header>
                 <Navbar.Toggle />
               </Navbar.Header>
@@ -38,7 +38,7 @@ class TopNavbar extends Component {
       return (
         <StickyContainer>
           <Sticky>
-            <Navbar style={{ backgroundColor: "black" }}>
+            <Navbar style={{ backgroundColor: "#990000" }}>
               <Navbar.Header>
                 <Navbar.Toggle />
               </Navbar.Header>

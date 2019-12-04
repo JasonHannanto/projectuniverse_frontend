@@ -125,7 +125,7 @@ class Dashboard extends Component {
           {/* <SideNavbar /> */}
           <div className="dashboard">
             <TopNavbar user={this.state.user} />
-            <Jumbotron fluid style={{ marginBottom: "0px" }}>
+            <Jumbotron fluid style={{ marginBottom: "0px", backgroundColor: "white" }}>
               <Container>
                 <h1>Welcome, feel free to preview the dashboard!</h1>
               </Container>
@@ -147,38 +147,38 @@ class Dashboard extends Component {
         {/* <SideNavbar user={this.state.user} /> */}
         <div className="dashboard">
           <TopNavbar user={this.state.user} />
-          <Jumbotron fluid style={{ marginBottom: "0px" }}>
+          <Jumbotron fluid style={{ marginBottom: "0px"}}>
             <Container>
-              <h1>Morning, {this.state.userInfo.fname}!</h1>
-            </Container>
+            <h1>Morning, {this.state.userInfo.fname}!</h1>
+          </Container>
           </Jumbotron>
 
-          <div className="tableheaders">
-            <p
-              style={{
-                marginBottom: "0px",
-                display: "inline-block",
-                marginRight: "50px"
-              }}
-            >
-              Your Projects
+        <div className="tableheaders">
+          <p
+            style={{
+              marginBottom: "0px",
+              display: "inline-block",
+              marginRight: "50px"
+            }}
+          >
+            Your Projects
             </p>
-            <PopUpFormProject notify={this.notify} user={this.state.user} />
-          </div>
-          <ProjectTable
-            projects={this.state.userProjects}
-            user={this.state.user}
-          />
-          <p className="tableheaders" style={{ marginBottom: "0px" }}>
-            All Projects
-          </p>
-          <ProjectTable
-            projects={this.state.projects}
-            user={this.state.user}
-            notify={this.notify}
-          />
+          <PopUpFormProject notify={this.notify} user={this.state.user} />
         </div>
+        <ProjectTable
+          projects={this.state.userProjects}
+          user={this.state.user}
+        />
+        <p className="tableheaders" style={{ marginBottom: "0px" }}>
+          All Projects
+          </p>
+        <ProjectTable
+          projects={this.state.projects}
+          user={this.state.user}
+          notify={this.notify}
+        />
       </div>
+      </div >
     );
   }
 }

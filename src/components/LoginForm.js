@@ -41,6 +41,7 @@ class LoginForm extends Component {
   }
 
   login(data) {
+    this.setState({ type: "login" });
     data.preventDefault();
     console.log({ here: data })
     bodyFormData.set("email", this.refs.email.value);
@@ -68,15 +69,16 @@ class LoginForm extends Component {
   };
 
   register(data) {
-    console.log({ data123: data });
-    bodyFormData.set("fname", data.fname);
-    bodyFormData.set("lname", data.lname);
-    bodyFormData.set("email", data.email);
-    bodyFormData.set("password", data.password);
-    bodyFormData.set("classstanding", data.classstanding);
-    bodyFormData.set("major", data.major);
-    bodyFormData.set("password", data.password);
-    bodyFormData.set("resumeurl", data.resumeurl);
+    this.setState({ type: "register" });
+    data.preventDefault();
+    bodyFormData.set("fname", this.refs.fname.value);
+    bodyFormData.set("lname", this.refs.lname.value);
+    bodyFormData.set("email", this.refs.email.value);
+    bodyFormData.set("password", this.refs.password.value);
+    bodyFormData.set("classstanding", this.refs.classStanding.value);
+    bodyFormData.set("major", this.refs.major.value);
+    bodyFormData.set("password", this.refs.phoneNumber.value);
+    bodyFormData.set("resumeurl", this.refs.resumeLink.value);
 
     axios({
       method: "post",
@@ -154,7 +156,7 @@ class LoginForm extends Component {
               <Form.Label>Password</Form.Label>
               <Form.Control
                 type="password"
-                value="nono"
+                defaultValue="nono"
                 ref="password"
                 placeholder="Password"
               />
@@ -181,7 +183,7 @@ class LoginForm extends Component {
         <div className="formDiv">
           <h1>Register</h1>
 
-          <Form className="form" onSubmit={(e) => this.login(e)}>
+          <Form className="form" onSubmit={(e) => this.register(e)}>
             <Form.Group controlId="email">
               <Form.Label>First Name</Form.Label>
               <Form.Control
@@ -196,11 +198,83 @@ class LoginForm extends Component {
               <Form.Label>Last Name</Form.Label>
               <Form.Control
                 type="text"
-                value="Trojan"
+                defaultValue="Trojan"
                 ref="lname"
                 placeholder="Enter Last Name"
               />
             </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue="Trojan"
+                ref="lname"
+                placeholder="Enter Last Name"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Email</Form.Label>
+              <Form.Control
+                type="emaill"
+                defaultValue="Trojan@usc.edu"
+                ref="email"
+                placeholder="Enter Email"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Password</Form.Label>
+              <Form.Control
+                type="password"
+                defaultValue="123456"
+                ref="password"
+                placeholder="Enter Password"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Class Standing</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue="1"
+                ref="classStanding"
+                placeholder="Enter Grade Year (1-4)"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Major</Form.Label>
+              <Form.Control
+                type="text"
+                defaultValue="Computer Science"
+                ref="major"
+                placeholder="Enter Major"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Phone Number</Form.Label>
+              <Form.Control
+                type="number"
+                defaultValue="6265044231"
+                ref="phoneNumber"
+                placeholder="Enter Phone Number"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Resume Link</Form.Label>
+              <Form.Control
+                defaultValue="https://jasonhannanto.github.io/"
+                ref="resumeLink"
+                placeholder="Enter Link to Resume"
+              />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+              Submit
+  </Button>
           </Form>
         </div>
 

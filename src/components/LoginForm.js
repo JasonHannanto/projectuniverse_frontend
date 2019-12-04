@@ -159,9 +159,6 @@ class LoginForm extends Component {
                 placeholder="Password"
               />
             </Form.Group>
-            <Form.Group controlId="formBasicCheckbox">
-              <Form.Check type="checkbox" label="Check me out" />
-            </Form.Group>
             <Button variant="primary" type="submit">
               Submit
             </Button>
@@ -183,24 +180,47 @@ class LoginForm extends Component {
       return (
         <div className="formDiv">
           <h1>Register</h1>
-          <Form
-            className="form"
-          // onSubmit={data => {
-          //   this.register(data);
-          // }}
-          >
-            <input name="fname" label="First Name" />
-            <input name="lname" value="Trojan" label="Last Name" />
-            <input name="email" value="Trojan@usc.edu" label="Email" />
-            <input name="lname" value="Trojan" label="Last Name" />
-            <input name="password" value="123456" label="Password" />
-            <input name="classstanding" value="1" label="Class Standing" />
-            <input name="major" value="Trojan" label="Major" />
-            <input name="phonenumber" value="Trojan" label="Phone Number" />
-            <input name="resumeurl" value="Trojan" label="Resume Link" />
-            <Button type="submit">Register</Button>
+
+          <Form className="form" onSubmit={(e) => this.login(e)}>
+            <Form.Group controlId="email">
+              <Form.Label>First Name</Form.Label>
+              <Form.Control
+                type="text"
+                ref="fname"
+                defaultValue="Tommy"
+                placeholder="Enter First Name"
+              />
+            </Form.Group>
+
+            <Form.Group>
+              <Form.Label>Last Name</Form.Label>
+              <Form.Control
+                type="text"
+                value="Trojan"
+                ref="lname"
+                placeholder="Enter Last Name"
+              />
+            </Form.Group>
           </Form>
         </div>
+
+        /* <Form
+          className="form"
+         onSubmit={data => {
+           this.register(data);
+         }}
+        >
+          <Input name="fname" label="First Name" />
+          <Input name="lname" value="Trojan" label="Last Name" />
+          <Input name="email" value="Trojan@usc.edu" label="Email" />
+          <Input name="lname" value="Trojan" label="Last Name" />
+          <Input name="password" value="123456" label="Password" />
+          <Input name="classstanding" value="1" label="Class Standing" />
+          <Input name="major" value="Trojan" label="Major" />
+          <Input name="phonenumber" value="Trojan" label="Phone Number" />
+          <Input name="resumeurl" value="Trojan" label="Resume Link" />
+          <Button type="submit">Register</Button>
+        </Form> */
       );
     }
   }

@@ -6,7 +6,7 @@ class NavBar extends Component {
     return (
       <Navbar stick="top" className="topnav nvbar justify-content-end">
         <Navbar.Brand className="brand" href="#home">
-          CollabSC
+          Project Universe
         </Navbar.Brand>
         <Nav className="">
           <Nav.Link className="nvitm" href="#home">

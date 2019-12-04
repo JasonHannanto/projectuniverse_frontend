@@ -49,7 +49,7 @@ class LandingPage extends Component {
                 textAlign: "center"
               }}
             >
-              CollabSC
+              Project Universe
             </p>
 
             <div
